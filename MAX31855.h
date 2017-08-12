@@ -27,16 +27,18 @@
 **                                                                                                                **
 ** Vers.  Date       Developer           Comments                                                                 **
 ** ====== ========== =================== ======================================================================== **
+** 1.0.0  2017-08-12 Arnd@SV-Zanshin.Com Ready for release                                                        **
 ** 1.0.0a 2017-08-11 Arnd@SV-Zanshin.Com Started coding                                                           **
 **                                                                                                                **
 *******************************************************************************************************************/
 #include "Arduino.h"                                                          // Arduino data type definitions    //
+#include <SPI.h>                                                              // Standard SPI library             //
 #ifndef MAX31855_h                                                            // Guard code definition            //
   #define MAX31855_h                                                          // Define the name inside guard code//
   /*****************************************************************************************************************
   ** Declare constants used in the class                                                                          **
   *****************************************************************************************************************/
-  const uint8_t  SPI_DELAY_MICROSECONDS = 100;                                // Wait time for SPI state changes  //
+  const uint8_t  SPI_DELAY_MICROSECONDS = 500;                                // Wait time for SPI state changes  //
   /*****************************************************************************************************************
   ** Main MAX31855 class for reading temperature information                                                      **
   *****************************************************************************************************************/
@@ -44,10 +46,15 @@
     public:                                                                   // Publicly visible methods         //
       MAX31855_Class();                                                       // Class constructor                //
       ~MAX31855_Class();                                                      // Class destructor                 //
-      bool     begin(const uint8_t cs, const uint8_t miso, const uint8_t sck);// Start using software SPI         //
-      uint8_t  getData(int16_t &ambientTemp, int16_t &probeTemp);             // Get readings                     //
+      bool    begin(const uint8_t cs);                                        // Start using hardware SPI         //
+      bool    begin(const uint8_t cs, const uint8_t miso, const uint8_t sck); // Start using software SPI         //
+      int32_t readProbe();                                                    // Return probe temperature         //
+      int32_t readAmbient();                                                  // Return ambient/die temperature   //
+      uint8_t getData(int16_t &probeTemp, int16_t &ambientTemp);              // Get readings                     //
+      uint8_t fault();                                                        // return any fault codes detected  //
     private:                                                                  // -------- Private methods ------- //
-      uint8_t  _cs,_miso,_sck;                                                // Store SPI pins                   //
-
+      int32_t readRaw();                                                      // Read 32 bits data from MAX31855  //
+      uint8_t _cs,_miso,_sck;                                                 // Store SPI pins                   //
+      uint8_t _errorCode;                                                     // MAX31855 fault code bits         //
   }; // of MAX31855 class definition                                          //                                  //
 #endif                                                                        //----------------------------------//

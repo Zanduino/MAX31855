@@ -22,19 +22,18 @@
 **                                                                                                                **
 ** Vers.  Date       Developer           Comments                                                                 **
 ** ====== ========== =================== ======================================================================== **
-** 1.0.1  2017-08-04 Arnd@SV-Zanshin.Com Made output cleaner and toggled humidity readings                        **
-** 1.0.0  2017-08-02 Arnd@SV-Zanshin.Com Cleaned up code prior to first release                                   **
-** 1.0.0b 2017-07-30 Arnd@SV-Zanshin.Com Initial coding                                                           **
+** 1.0.0  2017-08-12 Arnd@SV-Zanshin.Com Finished, first release                                                  **
+** 1.0.0a 2017-08-11 Arnd@SV-Zanshin.Com Initial coding                                                           **
 **                                                                                                                **
 *******************************************************************************************************************/
-#include <MAX31855.h>                                                         // Include MAX31855 Sensor library //
+#include <MAX31855.h>                                                          // Include MAX31855 Sensor library //
 /*******************************************************************************************************************
 ** Declare all program constants                                                                                  **
 *******************************************************************************************************************/
 const uint32_t SERIAL_SPEED            = 115200;                              // Set the baud rate for Serial I/O //
 const uint8_t  SPI_CHIP_SELECT         =      2;                              // Chip-Select PIN for SPI          //
-const uint8_t  SPI_MISO                =      2;                              // Master-In, Slave-Out PIN for SPI //
-const uint8_t  SPI_SYSTSEM_CLOCK       =      2;                              // System Clock PIN for SPI         //
+const uint8_t  SPI_MISO                =   MISO;                              // Master-In, Slave-Out PIN for SPI //
+const uint8_t  SPI_SYSTSEM_CLOCK       =    SCK;                              // System Clock PIN for SPI         //
 /*******************************************************************************************************************
 ** Declare global variables and instantiate classes                                                               **
 *******************************************************************************************************************/
@@ -49,18 +48,36 @@ void setup() {                                                                //
     delay(3000);                                                              // wait 3 seconds for the serial    //
   #endif                                                                      // interface to initialize          //
   Serial.println(F("Starting software SPI demo program for MAX31855"));       //                                  //
-  Serial.print(F("- Initializing MAX31855 sensor\n"));                        //                                  //
-                                                                              //==================================//
-  while (!MAX31855.begin(SPI_CHIP_SELECT,SPI_MISO,SPI_SYSTSEM_CLOCK)) {       // Start MAX31855 using SPI         //
-                                                                              //==================================//
-    Serial.println(F("-  Unable to find MAX31855. Waiting 3 seconds."));      // Show error text                  //
+  Serial.print(F("Initializing MAX31855 sensor\n"));                          //                                  //
+  /******************************************************                     //                                  //
+  ** Uncomment out either the hardware or software SPI **                     //                                  //
+  ** call, depending upon which you are going to use.  **                     //                                  //
+  ******************************************************/                     //                                  //
+  while (!MAX31855.begin(SPI_CHIP_SELECT)) {                                  // Hardware SPI for MAX31855        //
+//while (!MAX31855.begin(SPI_CHIP_SELECT,SPI_MISO,SPI_SYSTSEM_CLOCK)) {       // Software SPI for MAX31855        //
+    Serial.println(F("Unable to start MAX31855. Waiting 3 seconds."));        // Show error text                  //
     delay(3000);                                                              // wait three seconds               //
   } // of loop until device is located                                        //                                  //
+ Serial.println();                                                            //                                  //
 } // of method setup()                                                        //                                  //
 /*******************************************************************************************************************
 ** This is the main program for the Arduino IDE, it is an infinite loop and keeps on repeating.                   **
 *******************************************************************************************************************/
 void loop() {                                                                 //                                  //
-  uint8_t errorCode;                                                          // Store any errors                 //
-   int16_t ambientTemperature, probeTemperature
+  int32_t ambientTemperature = MAX31855.readAmbient();                        // retrieve die ambient temperature //
+  int32_t probeTemperature   = MAX31855.readProbe();                          // retrieve thermocouple probe temp //
+  uint8_t faultCode          = MAX31855.fault();                              // retrieve any error codes         //
+  if(faultCode) {                                                             // Display error code when present  //
+    Serial.print("Fault code ");                                              //                                  //
+    Serial.print(faultCode);                                                  //                                  //
+    Serial.println(" returned.");                                             //                                  //
+  } else {                                                                    //                                  //
+    Serial.print("Ambient Temperature is ");                                  //                                  //
+    Serial.print((float)ambientTemperature/1000,3);                           //                                  //
+    Serial.println("\xC2\xB0""C");                                            //                                  //
+    Serial.print("Probe Temperature is   ");                                  //                                  //
+    Serial.print((float)probeTemperature/1000,3);                             //                                  //
+    Serial.println("\xC2\xB0""C\n");                                          //                                  //
+  } // of if-then-else an error occurred                                      //                                  //
+  delay(5000);                                                                //                                  //
 } // of method loop()                                                         //----------------------------------//
