@@ -50,7 +50,6 @@
       bool    begin(const uint8_t cs, const uint8_t miso, const uint8_t sck); // Start using software SPI         //
       int32_t readProbe();                                                    // Return probe temperature         //
       int32_t readAmbient();                                                  // Return ambient/die temperature   //
-      uint8_t getData(int16_t &probeTemp, int16_t &ambientTemp);              // Get readings                     //
       uint8_t fault();                                                        // return any fault codes detected  //
     private:                                                                  // -------- Private methods ------- //
       int32_t readRaw();                                                      // Read 32 bits data from MAX31855  //
