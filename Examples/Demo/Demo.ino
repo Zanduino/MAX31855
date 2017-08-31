@@ -20,10 +20,10 @@
 ** GNU General Public License for more details. You should have received a copy of the GNU General Public License **
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.                                          **
 **                                                                                                                **
-** Vers.  Date       Developer           Comments                                                                 **
-** ====== ========== =================== ======================================================================== **
-** 1.0.0  2017-08-12 Arnd@SV-Zanshin.Com Finished, first release                                                  **
-** 1.0.0a 2017-08-11 Arnd@SV-Zanshin.Com Initial coding                                                           **
+** Vers.  Date       Developer                     Comments                                                       **
+** ====== ========== ============================= ============================================================== **
+** 1.0.0  2017-08-12 https://github.com/SV-Zanshin Finished, first release                                        **
+** 1.0.0a 2017-08-11 https://github.com/SV-Zanshin Initial coding                                                 **
 **                                                                                                                **
 *******************************************************************************************************************/
 #include <MAX31855.h>                                                          // Include MAX31855 Sensor library //

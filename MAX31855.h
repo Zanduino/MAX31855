@@ -25,10 +25,10 @@
 ** GNU General Public License for more details. You should have received a copy of the GNU General Public License **
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.                                          **
 **                                                                                                                **
-** Vers.  Date       Developer           Comments                                                                 **
-** ====== ========== =================== ======================================================================== **
-** 1.0.0  2017-08-12 Arnd@SV-Zanshin.Com Ready for release                                                        **
-** 1.0.0a 2017-08-11 Arnd@SV-Zanshin.Com Started coding                                                           **
+** Vers.  Date       Developer                     Comments                                                       **
+** ====== ========== ============================= ============================================================== **
+** 1.0.0  2017-08-12 https://github.com/SV-Zanshin Ready for release                                              **
+** 1.0.0a 2017-08-11 https://github.com/SV-Zanshin Started coding                                                 **
 **                                                                                                                **
 *******************************************************************************************************************/
 #include "Arduino.h"                                                          // Arduino data type definitions    //
