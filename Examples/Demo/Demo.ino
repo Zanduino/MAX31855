@@ -33,7 +33,7 @@
 const uint32_t SERIAL_SPEED            = 115200;                              // Set the baud rate for Serial I/O //
 const uint8_t  SPI_CHIP_SELECT         =      2;                              // Chip-Select PIN for SPI          //
 const uint8_t  SPI_MISO                =   MISO;                              // Master-In, Slave-Out PIN for SPI //
-const uint8_t  SPI_SYSTSEM_CLOCK       =    SCK;                              // System Clock PIN for SPI         //
+const uint8_t  SPI_SYSTEM_CLOCK        =    SCK;                              // System Clock PIN for SPI         //
 /*******************************************************************************************************************
 ** Declare global variables and instantiate classes                                                               **
 *******************************************************************************************************************/
