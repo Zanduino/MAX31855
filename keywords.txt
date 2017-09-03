@@ -14,10 +14,10 @@ begin	KEYWORD2
 mode	KEYWORD2
 setOversampling	KEYWORD2
 getOversampling	KEYWORD2
-iirFilter KEYWORD2
-inactiveTime KEYWORD2
-measurementTime KEYWORD2
-getSensorData KEYWORD2
+iirFilter	KEYWORD2
+inactiveTime	KEYWORD2
+measurementTime	KEYWORD2
+getSensorData	KEYWORD2
 
 ########################
 # Constants (LITERAL1) #
