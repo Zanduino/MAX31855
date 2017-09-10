@@ -19,22 +19,29 @@ MAX31855_Class::~MAX31855_Class() {}                                          //
 ** SPI to be used.  Since the MAX31855 is a 1-way device, there is no practical way to check for a device, so the **
 ** begin() is set to always return success                                                                        **
 *******************************************************************************************************************/
-bool MAX31855_Class::begin(const uint8_t chipSelect) {                        // Start using hardware SPI         //
-  _cs = chipSelect;                                                           // Copy value for later use         //
+bool MAX31855_Class::begin(const uint8_t chipSelect, const bool reverse) {    // Start using hardware SPI         //
+  _reversed = reverse;                                                        // Set to true if contacts reversed //
+  _cs       = chipSelect;                                                     // Copy value for later use         //
   pinMode(_cs, OUTPUT);                                                       // Make the chip select pin output  //
   digitalWrite(_cs, HIGH);                                                    // High means ignore master         //
   SPI.begin();                                                                // Initialize SPI communication     //
-  return true;                                                                // Always return success            //
+  int32_t dataBuffer = readRaw();                                             // Read the raw data into variable  //
+  if (_errorCode) return false; else return true;                             // Return if successful             //
 } // of method begin()                                                        //----------------------------------//
 bool MAX31855_Class::begin(const uint8_t chipSelect,                          // Start using software SPI         //
                            const uint8_t miso,                                //                                  //
-                           const uint8_t sck) {                               //                                  //
-  _cs   = chipSelect; _miso = miso; _sck  = sck;                              // Store SPI pins                   //
+                           const uint8_t sck,                                 //                                  //
+                           const bool reverse) {                              //                                  //
+  _reversed = reverse;                                                        // Set to true if contacts reversed //
+  _cs       = chipSelect;                                                     // Store SPI pins                   //
+  _miso     = miso;                                                           //                                  //
+  _sck      = sck;                                                            //                                  //
   pinMode(_cs, OUTPUT);                                                       // Make the chip select pin output  //
   digitalWrite(_cs, HIGH);                                                    // High means ignore master         //
   pinMode(_sck, OUTPUT);                                                      // Make system clock pin output     //
   pinMode(_miso, INPUT);                                                      // Make master-in slave-out input   //
-  return true;                                                                // Always return success            //
+  int32_t dataBuffer = readRaw();                                             // Read the raw data into variable  //
+  if (_errorCode) return false; else return true;                             // Return if successful             //
 } // of method begin()                                                        //                                  //
 /*******************************************************************************************************************
 ** Method fault() returns the last fault code from the MAX31855                                                   **
@@ -50,7 +57,7 @@ int32_t MAX31855_Class::readRaw() {                                           //
   digitalWrite(_cs,LOW);                                                      // Tell MAX31855 that it is active  //
   delayMicroseconds(SPI_DELAY_MICROSECONDS);                                  // Give device time to respond      //
   if(_sck==0) {                                                               // If we are using HW SPI branch    //
-    SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));          // Start transaction at 4MHz MSB    //
+    SPI.beginTransaction(SPISettings(14000000, MSBFIRST, SPI_MODE0));         // Start transaction at 14MHz MSB   //
     dataBuffer   = SPI.transfer(0);                                           // Read a byte                      //
     dataBuffer <<= 8;                                                         // Shift over left 8 bits           //
     dataBuffer  |= SPI.transfer(0);                                           // Read a byte                      //
@@ -80,13 +87,20 @@ int32_t MAX31855_Class::readRaw() {                                           //
 ** no floating point needs to be used and no precision is lost                                                    **
 *******************************************************************************************************************/
 int32_t MAX31855_Class::readProbe() {                                         // Get readings                     //
-  int32_t dataBuffer = readRaw();                                             // Read the raw data into variable  //
+  int32_t rawBuffer  = readRaw();                                             // Read the raw data into variable  //
+  int32_t dataBuffer = rawBuffer;                                             // Copy to working variable         //
   if (dataBuffer & B111) dataBuffer = INT32_MAX;                              // if error bits set then return err//
   else {                                                                      //                                  //
     dataBuffer = dataBuffer >> 18;                                            // remove unused ambient values     //
     if(dataBuffer & 0x2000) dataBuffer |= 0xFFFE000;                          // 2s complement bits if negative   //
-    dataBuffer *= 250;                                                        // Sensitivity is 0.25°C            //
+    dataBuffer *= (int32_t)250;                                               // Sensitivity is 0.25°C            //
   } // of if we have an error                                                 //                                  //
+  if (_reversed) {                                                            // If the thermocouple pins are     //
+    int32_t ambientBuffer = (rawBuffer&0xFFFF)>>4;                            // remove probe & fault values      //
+    if(ambientBuffer & 0x2000) ambientBuffer |= 0xFFFF000;                    // 2s complement bits if negative   //
+    ambientBuffer = ambientBuffer*(int32_t)625/(int32_t)10;                   // Sensitivity is 0.0625°C          //
+    dataBuffer = (ambientBuffer-dataBuffer)+ambientBuffer;                    // Invert the delta temperature     //
+  } // of if-then the thermocouple pins reversed                              //                                  //
   return dataBuffer;                                                          // Return appropriate code          //
 } // of method readProbe()                                                    //                                  //
 /*******************************************************************************************************************
@@ -99,7 +113,7 @@ int32_t MAX31855_Class::readAmbient() {                                       //
   else {                                                                      //                                  //
     dataBuffer = (dataBuffer&0xFFFF)>>4;                                      // remove probe & fault values      //
     if(dataBuffer & 0x2000) dataBuffer |= 0xFFFF000;                          // 2s complement bits if negative   //
-    dataBuffer = dataBuffer*625/10;                                           // Sensitivity is 0.0625°C          //
+    dataBuffer = dataBuffer*(int32_t)625/(int32_t)10;                         // Sensitivity is 0.0625°C          //
   } // of if we have an error                                                 //                                  //
   return dataBuffer;                                                          // Return appropriate code          //
 } // of method readAmbient()                                                  //                                  //

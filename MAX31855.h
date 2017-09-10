@@ -27,6 +27,8 @@
 **                                                                                                                **
 ** Vers.  Date       Developer                     Comments                                                       **
 ** ====== ========== ============================= ============================================================== **
+** 1.0.1a 2017-09-10 https://github.com/SV-Zanshin Added error return codes for begin(). Added reverse switch in  **
+**                                                 begin()                                                        **
 ** 1.0.0  2017-08-12 https://github.com/SV-Zanshin Ready for release                                              **
 ** 1.0.0a 2017-08-11 https://github.com/SV-Zanshin Started coding                                                 **
 **                                                                                                                **
@@ -38,7 +40,7 @@
   /*****************************************************************************************************************
   ** Declare constants used in the class                                                                          **
   *****************************************************************************************************************/
-  const uint8_t  SPI_DELAY_MICROSECONDS = 500;                                // Wait time for SPI state changes  //
+  const uint8_t  SPI_DELAY_MICROSECONDS = 1000;                                // Wait time for SPI state changes  //
   /*****************************************************************************************************************
   ** Main MAX31855 class for reading temperature information                                                      **
   *****************************************************************************************************************/
@@ -46,8 +48,9 @@
     public:                                                                   // Publicly visible methods         //
       MAX31855_Class();                                                       // Class constructor                //
       ~MAX31855_Class();                                                      // Class destructor                 //
-      bool    begin(const uint8_t cs);                                        // Start using hardware SPI         //
-      bool    begin(const uint8_t cs, const uint8_t miso, const uint8_t sck); // Start using software SPI         //
+      bool    begin(const uint8_t cs,const bool reverse = false);             // Start using hardware SPI         //
+      bool    begin(const uint8_t cs, const uint8_t miso, const uint8_t sck,  // Start using software SPI         //
+                    const bool reverse = false);                              //                                  //
       int32_t readProbe();                                                    // Return probe temperature         //
       int32_t readAmbient();                                                  // Return ambient/die temperature   //
       uint8_t fault();                                                        // return any fault codes detected  //
@@ -55,5 +58,6 @@
       int32_t readRaw();                                                      // Read 32 bits data from MAX31855  //
       uint8_t _cs,_miso,_sck;                                                 // Store SPI pins                   //
       uint8_t _errorCode;                                                     // MAX31855 fault code bits         //
+      bool    _reversed = false;                                              // Set to true if contacts reversed //
   }; // of MAX31855 class definition                                          //                                  //
 #endif                                                                        //----------------------------------//
