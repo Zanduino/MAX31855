@@ -42,13 +42,15 @@ bool MAX31855_Class::begin(const uint8_t chipSelect,                          //
   pinMode(_miso, INPUT);                                                      // Make master-in slave-out input   //
   int32_t dataBuffer = readRaw();                                             // Read the raw data into variable  //
   if (_errorCode) return false; else return true;                             // Return if successful             //
-} // of method begin()                                                        //                                  //
+} // of method begin()                                                        //----------------------------------//
+
 /*******************************************************************************************************************
 ** Method fault() returns the last fault code from the MAX31855                                                   **
 *******************************************************************************************************************/
 uint8_t MAX31855_Class::fault() {                                             // Get fault state                  //
   return _errorCode;                                                          // return internal variable         //
-} // of method fault()                                                        //                                  //
+} // of method fault()                                                        //----------------------------------//
+
 /*******************************************************************************************************************
 ** Method readRaw() returns the 32 bits of raw data from the MAX31855 device                                      **
 *******************************************************************************************************************/
@@ -81,7 +83,8 @@ int32_t MAX31855_Class::readRaw() {                                           //
   digitalWrite(_cs,HIGH);                                                     // MAX31855 no longer active        //
   _errorCode = dataBuffer & B111;                                             // Set fault code bits              //
   return dataBuffer;                                                          // Return data                      //
-} // of method readRaw()                                                      //                                  //
+} // of method readRaw()                                                      //----------------------------------//
+
 /*******************************************************************************************************************
 ** Method readProbe() returns the probe temperature. The temperature is returned in milli-degrees Celsius so that **
 ** no floating point needs to be used and no precision is lost                                                    **
@@ -102,7 +105,8 @@ int32_t MAX31855_Class::readProbe() {                                         //
     dataBuffer = (ambientBuffer-dataBuffer)+ambientBuffer;                    // Invert the delta temperature     //
   } // of if-then the thermocouple pins reversed                              //                                  //
   return dataBuffer;                                                          // Return appropriate code          //
-} // of method readProbe()                                                    //                                  //
+} // of method readProbe()                                                    //----------------------------------//
+
 /*******************************************************************************************************************
 ** Method readAmbient() returns the probe temperature. The temperature is returned in milli-degrees Celsius so    **
 ** that no floating point needs to be used and no precision is lost                                               **
@@ -116,4 +120,4 @@ int32_t MAX31855_Class::readAmbient() {                                       //
     dataBuffer = dataBuffer*(int32_t)625/(int32_t)10;                         // Sensitivity is 0.0625°C          //
   } // of if we have an error                                                 //                                  //
   return dataBuffer;                                                          // Return appropriate code          //
-} // of method readAmbient()                                                  //                                  //
+} // of method readAmbient()                                                  //----------------------------------//

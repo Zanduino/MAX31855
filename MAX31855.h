@@ -27,8 +27,8 @@
 **                                                                                                                **
 ** Vers.  Date       Developer                     Comments                                                       **
 ** ====== ========== ============================= ============================================================== **
-** 1.0.1a 2017-09-10 https://github.com/SV-Zanshin Added error return codes for begin(). Added reverse switch in  **
-**                                                 begin()                                                        **
+** 1.0.1  2017-09-10 https://github.com/SV-Zanshin Added error return codes for begin(). Added reverse switch in  **
+**                                                 begin() and corrected speed issue and sporadic errors          **
 ** 1.0.0  2017-08-12 https://github.com/SV-Zanshin Ready for release                                              **
 ** 1.0.0a 2017-08-11 https://github.com/SV-Zanshin Started coding                                                 **
 **                                                                                                                **
@@ -40,7 +40,7 @@
   /*****************************************************************************************************************
   ** Declare constants used in the class                                                                          **
   *****************************************************************************************************************/
-  const uint8_t  SPI_DELAY_MICROSECONDS = 1000;                                // Wait time for SPI state changes  //
+  const uint8_t  SPI_DELAY_MICROSECONDS = 1000;                               // Wait time for SPI state changes  //
   /*****************************************************************************************************************
   ** Main MAX31855 class for reading temperature information                                                      **
   *****************************************************************************************************************/
