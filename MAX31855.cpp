@@ -52,36 +52,41 @@ uint8_t MAX31855_Class::fault() {                                             //
 } // of method fault()                                                        //----------------------------------//
 
 /*******************************************************************************************************************
-** Method readRaw() returns the 32 bits of raw data from the MAX31855 device                                      **
+** Method readRaw() returns the 32 bits of raw data from the MAX31855 device. Sometimes invalid readings are      **
+** returned (0x7FFFFFFF) so this routine will loop several times to get a valid reading.                          **
 *******************************************************************************************************************/
 int32_t MAX31855_Class::readRaw() {                                           // Get readings                     //
   int32_t dataBuffer = 0;                                                     //                                  //
-  digitalWrite(_cs,LOW);                                                      // Tell MAX31855 that it is active  //
-  delayMicroseconds(SPI_DELAY_MICROSECONDS);                                  // Give device time to respond      //
-  if(_sck==0) {                                                               // If we are using HW SPI branch    //
-    SPI.beginTransaction(SPISettings(14000000, MSBFIRST, SPI_MODE0));         // Start transaction at 14MHz MSB   //
-    dataBuffer   = SPI.transfer(0);                                           // Read a byte                      //
-    dataBuffer <<= 8;                                                         // Shift over left 8 bits           //
-    dataBuffer  |= SPI.transfer(0);                                           // Read a byte                      //
-    dataBuffer <<= 8;                                                         // Shift over left 8 bits           //
-    dataBuffer  |= SPI.transfer(0);                                           // Read a byte                      //
-    dataBuffer <<= 8;                                                         // Shift over left 8 bits           //
-    dataBuffer  |= SPI.transfer(0);                                           // Read a byte                      //
-    SPI.endTransaction();                                                     // Terminate SPI transaction        //
-  } else {                                                                    //                                  //
-    digitalWrite(_sck, LOW);                                                  // Toggle the system clock low      //
+  for(uint8_t retryCounter=0;retryCounter<READING_RETRIES;retryCounter++) {   // Loop until good reading or ovfl  //
+    digitalWrite(_cs,LOW);                                                    // Tell MAX31855 that it is active  //
     delayMicroseconds(SPI_DELAY_MICROSECONDS);                                // Give device time to respond      //
-    for(uint8_t i=0;i<32;i++) {                                               // Loop for each bit to be read     //
+    if(_sck==0) {                                                             // If we are using HW SPI branch    //
+      SPI.beginTransaction(SPISettings(14000000, MSBFIRST, SPI_MODE0));       // Start transaction at 14MHz MSB   //
+      dataBuffer   = SPI.transfer(0);                                         // Read a byte                      //
+      dataBuffer <<= 8;                                                       // Shift over left 8 bits           //
+      dataBuffer  |= SPI.transfer(0);                                         // Read a byte                      //
+      dataBuffer <<= 8;                                                       // Shift over left 8 bits           //
+      dataBuffer  |= SPI.transfer(0);                                         // Read a byte                      //
+      dataBuffer <<= 8;                                                       // Shift over left 8 bits           //
+      dataBuffer  |= SPI.transfer(0);                                         // Read a byte                      //
+      SPI.endTransaction();                                                   // Terminate SPI transaction        //
+    } else {                                                                  //                                  //
       digitalWrite(_sck, LOW);                                                // Toggle the system clock low      //
       delayMicroseconds(SPI_DELAY_MICROSECONDS);                              // Give device time to respond      //
-      dataBuffer <<= 1;                                                       // Shift over 1 bit                 //
-      if (digitalRead(_miso)) dataBuffer |= 1;                                // set rightmost bit if true        //
-      digitalWrite(_sck, HIGH);                                               // Toggle the system clock high     //
-      delayMicroseconds(SPI_DELAY_MICROSECONDS);                              // Give device time to respond      //
-    } // of read each bit from software SPI bus                               //                                  //
-  } // of if-then-else we are using HW SPI                                    //                                  //
-  digitalWrite(_cs,HIGH);                                                     // MAX31855 no longer active        //
-  _errorCode = dataBuffer & B111;                                             // Set fault code bits              //
+      for(uint8_t i=0;i<32;i++) {                                             // Loop for each bit to be read     //
+        digitalWrite(_sck, LOW);                                              // Toggle the system clock low      //
+        delayMicroseconds(SPI_DELAY_MICROSECONDS);                            // Give device time to respond      //
+        dataBuffer <<= 1;                                                     // Shift over 1 bit                 //
+        if (digitalRead(_miso)) dataBuffer |= 1;                              // set rightmost bit if true        //
+        digitalWrite(_sck, HIGH);                                             // Toggle the system clock high     //
+        delayMicroseconds(SPI_DELAY_MICROSECONDS);                            // Give device time to respond      //
+      } // of read each bit from software SPI bus                             //                                  //
+    } // of if-then-else we are using HW SPI                                  //                                  //
+    digitalWrite(_cs,HIGH);                                                   // MAX31855 no longer active        //
+    _errorCode = dataBuffer & B111;                                           // Set fault code bits              //
+    if(!_errorCode) break;                                                     // Leave loop on a good value       //
+    delay(25);                                                                // Wait a bit before retrying       //
+  } // of for-next number of retries                                          //                                  //
   return dataBuffer;                                                          // Return data                      //
 } // of method readRaw()                                                      //----------------------------------//
 

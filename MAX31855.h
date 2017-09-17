@@ -27,6 +27,7 @@
 **                                                                                                                **
 ** Vers.  Date       Developer                     Comments                                                       **
 ** ====== ========== ============================= ============================================================== **
+** 1.0.2a 2017-09-17 https://github.com/SV-Zanshin https://github.com/SV-Zanshin/MAX31855/issues/2 Invalid values **
 ** 1.0.1  2017-09-10 https://github.com/SV-Zanshin Added error return codes for begin(). Added reverse switch in  **
 **                                                 begin() and corrected speed issue and sporadic errors          **
 ** 1.0.0  2017-08-12 https://github.com/SV-Zanshin Ready for release                                              **
@@ -41,6 +42,7 @@
   ** Declare constants used in the class                                                                          **
   *****************************************************************************************************************/
   const uint8_t  SPI_DELAY_MICROSECONDS = 1000;                               // Wait time for SPI state changes  //
+  const uint8_t  READING_RETRIES        =   64;                               // Number of retries for reading    //
   /*****************************************************************************************************************
   ** Main MAX31855 class for reading temperature information                                                      **
   *****************************************************************************************************************/
