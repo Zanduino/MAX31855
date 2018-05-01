@@ -84,7 +84,7 @@ int32_t MAX31855_Class::readRaw() {                                           //
     } // of if-then-else we are using HW SPI                                  //                                  //
     digitalWrite(_cs,HIGH);                                                   // MAX31855 no longer active        //
     _errorCode = dataBuffer & B111;                                           // Set fault code bits              //
-    if(!_errorCode) break;                                                     // Leave loop on a good value       //
+    if(!_errorCode) break;                                                    // Leave loop on a good value       //
     delay(25);                                                                // Wait a bit before retrying       //
   } // of for-next number of retries                                          //                                  //
   return dataBuffer;                                                          // Return data                      //

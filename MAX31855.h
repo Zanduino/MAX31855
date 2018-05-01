@@ -41,8 +41,8 @@
   /*****************************************************************************************************************
   ** Declare constants used in the class                                                                          **
   *****************************************************************************************************************/
-  const uint8_t  SPI_DELAY_MICROSECONDS = 1000;                               // Wait time for SPI state changes  //
-  const uint8_t  READING_RETRIES        =   64;                               // Number of retries for reading    //
+  const uint16_t  SPI_DELAY_MICROSECONDS = 1000;                              // Wait time for SPI state changes  //
+  const uint8_t  READING_RETRIES         =   64;                              // Number of retries for reading    //
   /*****************************************************************************************************************
   ** Main MAX31855 class for reading temperature information                                                      **
   *****************************************************************************************************************/
