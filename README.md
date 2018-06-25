@@ -10,4 +10,6 @@ The ambient temperature is affected by die and board temperature and will genera
 
 A detailed library description and further details are available at the [GitHub MAX31855 Wiki](https://github.com/SV-Zanshin/MAX31855/wiki)
 
+[![DOI](https://www.zenodo.org/badge/100047040.svg)](https://www.zenodo.org/badge/latestdoi/100047040)
+
 ![Zanshin Logo](https://www.sv-zanshin.com/r/images/site/gif/zanshinkanjitiny.gif) <img src="https://www.sv-zanshin.com/r/images/site/gif/zanshintext.gif" width="75"/>
