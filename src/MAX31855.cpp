@@ -25,7 +25,7 @@ bool MAX31855_Class::begin(const uint8_t chipSelect, const bool reverse) {    //
   pinMode(_cs, OUTPUT);                                                       // Make the chip select pin output  //
   digitalWrite(_cs, HIGH);                                                    // High means ignore master         //
   SPI.begin();                                                                // Initialize SPI communication     //
-  int32_t dataBuffer = readRaw();                                             // Read the raw data into variable  //
+  readRaw();                                                                  // Try to the raw data
   if (_errorCode) return false; else return true;                             // Return if successful             //
 } // of method begin()                                                        //----------------------------------//
 bool MAX31855_Class::begin(const uint8_t chipSelect,                          // Start using software SPI         //
@@ -40,7 +40,7 @@ bool MAX31855_Class::begin(const uint8_t chipSelect,                          //
   digitalWrite(_cs, HIGH);                                                    // High means ignore master         //
   pinMode(_sck, OUTPUT);                                                      // Make system clock pin output     //
   pinMode(_miso, INPUT);                                                      // Make master-in slave-out input   //
-  int32_t dataBuffer = readRaw();                                             // Read the raw data into variable  //
+  readRaw();                                                                  // Read the raw data
   if (_errorCode) return false; else return true;                             // Return if successful             //
 } // of method begin()                                                        //----------------------------------//
 
