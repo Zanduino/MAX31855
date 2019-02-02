@@ -1,4 +1,4 @@
-# MAX31855 library
+# MAX31855 library [![Build Status](https://travis-ci.org/SV-Zanshin/MAX31855.svg?branch=master)](https://travis-ci.org/SV-Zanshin/MAX31855) [![DOI](https://www.zenodo.org/badge/100047040.svg)](https://www.zenodo.org/badge/latestdoi/100047040)
 <img src="https://github.com/SV-Zanshin/MAX31855/blob/master/Images/Digilent_Pmod_TC1.png" width="175" align="right"/> *Arduino* library for using the [Maxim Integrated MAX31855](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/MAX31855.html) cold-junction compensated thermocouple to digital sensor.
 
 ## Breakout boards
@@ -9,7 +9,5 @@ The MAX31855 uses SPI and, when selected, sends a 4 byte buffer which can be dec
 The ambient temperature is affected by die and board temperature and will generally be above actual ambient room temperature.
 
 A detailed library description and further details are available at the [GitHub MAX31855 Wiki](https://github.com/SV-Zanshin/MAX31855/wiki)
-
-[![DOI](https://www.zenodo.org/badge/100047040.svg)](https://www.zenodo.org/badge/latestdoi/100047040)
 
 ![Zanshin Logo](https://www.sv-zanshin.com/r/images/site/gif/zanshinkanjitiny.gif) <img src="https://www.sv-zanshin.com/r/images/site/gif/zanshintext.gif" width="75"/>
