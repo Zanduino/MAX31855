@@ -34,7 +34,7 @@ Written by Arnd\@SV-Zanshin
 
 Version| Date       | Developer                     | Comments
 ------ | ---------- | ----------------------------- | --------
-1.0.3  | 2019-02-02 | https://github.com/SV-Zanshin | Issue #5 - Convert comments and style to Doxygen
+1.0.4  | 2019-02-02 | https://github.com/SV-Zanshin | Issue #5 - Convert comments and style to Doxygen
 1.0.2  | 2017-09-17 | https://github.com/SV-Zanshin | Issue #2 - Invalid values
 1.0.1  | 2017-09-10 | https://github.com/SV-Zanshin | Added error return codes for begin(). Added reverse switch in
                                                       begin() and corrected speed issue and sporadic errors
