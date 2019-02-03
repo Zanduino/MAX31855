@@ -1,4 +1,4 @@
-# MAX31855 library [![Build Status](https://travis-ci.org/SV-Zanshin/MAX31855.svg?branch=master)](https://travis-ci.org/SV-Zanshin/MAX31855) [![DOI](https://www.zenodo.org/badge/100047040.svg)](https://www.zenodo.org/badge/latestdoi/100047040)
+# MAX31855 library<br>[![Build Status](https://travis-ci.org/SV-Zanshin/MAX31855.svg?branch=master)](https://travis-ci.org/SV-Zanshin/MAX31855) [![DOI](https://www.zenodo.org/badge/100047040.svg)](https://www.zenodo.org/badge/latestdoi/100047040) [![arduino-library-badge](https://www.ardu-badge.com/badge/MAX31855.svg?)](https://www.ardu-badge.com/MAX31855)
 <img src="https://github.com/SV-Zanshin/MAX31855/blob/master/Images/Digilent_Pmod_TC1.png" width="175" align="right"/> *Arduino* library for using the [Maxim Integrated MAX31855](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/MAX31855.html) cold-junction compensated thermocouple to digital sensor.
 
 ## Breakout boards
