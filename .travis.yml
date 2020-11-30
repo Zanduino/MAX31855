@@ -22,7 +22,7 @@ git:
   quiet: true
 env:
   global:
-    - PRETTYNAME="SV-Zanshin Arduino to access the MAX31855 Cold-Junction Compensated Thermocouple-to-digital converter"
+    - PRETTYNAME="SV-Zanshin Arduino Library to access the MAX31855 Cold-Junction Compensated Thermocouple-to-digital converter"
     - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
 
 before_install:
