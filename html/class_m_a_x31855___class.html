@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MAX31855
-   &#160;<span id="projectnumber">Version 1.0.3</span>
+   &#160;<span id="projectnumber">Version 1.0.5</span>
    </div>
    <div id="projectbrief">Arduino Library for the MAX31855 Cold-Junction Compensated Thermocouple-to-digital converter</div>
   </td>
@@ -91,8 +91,6 @@ $(document).ready(function(){initNavTree('class_m_a_x31855___class.html','');});
 
 <p>MAX31855 class for reading temperature information.  
  <a href="class_m_a_x31855___class.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_m_a_x31855_8h_source.html">MAX31855.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -104,27 +102,22 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#ac88c27ebf599985985776900d38a19ec">~MAX31855_Class</a> ()</td></tr>
 <tr class="memdesc:ac88c27ebf599985985776900d38a19ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty &amp; unused class destructor. <br /></td></tr>
 <tr class="separator:ac88c27ebf599985985776900d38a19ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22b1085cb54de08c4fba747699669f77"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#a22b1085cb54de08c4fba747699669f77">begin</a> (const uint8_t cs, const bool reverse=false)</td></tr>
-<tr class="memdesc:a22b1085cb54de08c4fba747699669f77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize library with Hardware SPI (overloaded function.  <a href="#a22b1085cb54de08c4fba747699669f77">More...</a><br /></td></tr>
-<tr class="separator:a22b1085cb54de08c4fba747699669f77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98a31ba0837a466cba7b7daffd9e311a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#a98a31ba0837a466cba7b7daffd9e311a">begin</a> (const uint8_t cs, const uint8_t miso, const uint8_t sck, const bool reverse=false)</td></tr>
-<tr class="memdesc:a98a31ba0837a466cba7b7daffd9e311a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize library with Softwaree SPI (overloaded function.  <a href="#a98a31ba0837a466cba7b7daffd9e311a">More...</a><br /></td></tr>
-<tr class="separator:a98a31ba0837a466cba7b7daffd9e311a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7183ab722475f6fe6a4fef5a83f3ce16"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#a7183ab722475f6fe6a4fef5a83f3ce16">begin</a> (const uint8_t chipSelect, const bool reverse=false)</td></tr>
+<tr class="separator:a7183ab722475f6fe6a4fef5a83f3ce16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6b8b2edec0f8560dc4e90704983cd8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#af6b8b2edec0f8560dc4e90704983cd8a">begin</a> (const uint8_t chipSelect, const uint8_t miso, const uint8_t sck, const bool reverse=false)</td></tr>
+<tr class="separator:af6b8b2edec0f8560dc4e90704983cd8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86fec1388c9a486f57cdb0172fc1ab1d"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#a86fec1388c9a486f57cdb0172fc1ab1d">readProbe</a> ()</td></tr>
-<tr class="memdesc:a86fec1388c9a486f57cdb0172fc1ab1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the probe temperature  <a href="#a86fec1388c9a486f57cdb0172fc1ab1d">More...</a><br /></td></tr>
 <tr class="separator:a86fec1388c9a486f57cdb0172fc1ab1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b06d075b79b4793cc15ed0bdeac8e81"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#a3b06d075b79b4793cc15ed0bdeac8e81">readAmbient</a> ()</td></tr>
-<tr class="memdesc:a3b06d075b79b4793cc15ed0bdeac8e81"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the ambient temperature  <a href="#a3b06d075b79b4793cc15ed0bdeac8e81">More...</a><br /></td></tr>
 <tr class="separator:a3b06d075b79b4793cc15ed0bdeac8e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0d85776414cc97925dd581caedffe76"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#ac0d85776414cc97925dd581caedffe76">fault</a> ()</td></tr>
-<tr class="memdesc:ac0d85776414cc97925dd581caedffe76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the device fault state.  <a href="#ac0d85776414cc97925dd581caedffe76">More...</a><br /></td></tr>
-<tr class="separator:ac0d85776414cc97925dd581caedffe76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc8e80d6857c8882035936dc2836ce4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_m_a_x31855___class.html#a4bc8e80d6857c8882035936dc2836ce4">fault</a> () const</td></tr>
+<tr class="separator:a4bc8e80d6857c8882035936dc2836ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MAX31855 class for reading temperature information. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a22b1085cb54de08c4fba747699669f77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22b1085cb54de08c4fba747699669f77">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
+<a id="a7183ab722475f6fe6a4fef5a83f3ce16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7183ab722475f6fe6a4fef5a83f3ce16">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,21 +141,20 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Initialize library with Hardware SPI (overloaded function. </p>
-<p>When called with one parameter which represents the chip-select pin then hardware SPI is used, otherwise when called with 3 parameters they define the software SPI pins SPI to be used. Since the MAX31855 is a 1-way device, there is no practical way to check for a device, so a dummy read is done to see if the device is responding and that defines whether the function returns a true or false success </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Initialize library with Hardware SPI (overloaded function</p>
+<p>When called with one parameter which represents the chip-select pin then hardware SPI is used, otherwise when called with 3 parameters they define the software SPI pins SPI to be used. Since the MAX31855 is a 1-way device, there is no practical way to check for a device, so a dummy read is done to see if the device is responding and that defines whether the function returns a true or false status </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">chipSelect</td><td>Chip-Select pin number </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">reverse</td><td>Option boolean switch to indicate that the wires are (intentionally) reversed </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the device could be read, otherwise false </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the device could be read, otherwise false</dd></dl>
 
 </div>
 </div>
-<a id="a98a31ba0837a466cba7b7daffd9e311a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98a31ba0837a466cba7b7daffd9e311a">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
+<a id="af6b8b2edec0f8560dc4e90704983cd8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6b8b2edec0f8560dc4e90704983cd8a">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,9 +190,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Initialize library with Softwaree SPI (overloaded function. </p>
-<p>When called with one parameter which represents the chip-select pin then hardware SPI is used, otherwise when called with 3 parameters they define the software SPI pins SPI to be used. Since the MAX31855 is a 1-way device, there is no practical way to check for a device, so a dummy read is done to see if the device is responding and that defines whether the function returns a true or false success </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Initialize library with Software SPI (overloaded function)</p>
+<p>When called with one parameter which represents the chip-select pin then hardware SPI is used, otherwise when called with 3 parameters they define the software SPI pins SPI to be used. Since the MAX31855 is a 1-way device, there is no practical way to check for a device, so a dummy read is done to see if the device is responding and that defines whether the function returns a true or false status </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">chipSelect</td><td>Chip-Select pin number </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">miso</td><td>Master-In-Slave-Out pin number </td></tr>
@@ -209,12 +200,12 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the device could be read, otherwise false </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the device could be read, otherwise false</dd></dl>
 
 </div>
 </div>
-<a id="ac0d85776414cc97925dd581caedffe76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0d85776414cc97925dd581caedffe76">&#9670;&nbsp;</a></span>fault()</h2>
+<a id="a4bc8e80d6857c8882035936dc2836ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc8e80d6857c8882035936dc2836ce4">&#9670;&nbsp;</a></span>fault()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,13 +214,12 @@ Public Member Functions</h2></td></tr>
           <td class="memname">uint8_t MAX31855_Class::fault </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Return the device fault state. </p>
-<p>The fault state of the device from the last read attempt is stored in a private variable, this is returned by this call </p><dl class="section return"><dt>Returns</dt><dd>MAX31855 fault state from the last read </dd></dl>
+<p>Return the device fault state</p>
+<p>The fault state of the device from the last read attempt is stored in a private variable, this is returned by this call </p><dl class="section return"><dt>Returns</dt><dd>MAX31855 fault state from the last read</dd></dl>
 
 </div>
 </div>
@@ -247,9 +237,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>returns the ambient temperature </p>
-<p>The temperature is returned in milli-degrees Celsius so that no floating point needs to be used and no } precision is lost </p><dl class="section return"><dt>Returns</dt><dd>Ambient Temperature in milli/degrees </dd></dl>
+<p>returns the ambient temperature</p>
+<p>The temperature is returned in milli-degrees Celsius so that no floating point needs to be used and no precision is lost </p><dl class="section return"><dt>Returns</dt><dd>Ambient Temperature in milli/degrees</dd></dl>
 
 </div>
 </div>
@@ -267,9 +256,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>returns the probe temperature </p>
-<p>The temperature is returned in milli-degrees Celsius so that no floating point needs to be used and no } precision is lost </p><dl class="section return"><dt>Returns</dt><dd>Probe Temperature in milli/degrees </dd></dl>
+<p>returns the probe temperature</p>
+<p>The temperature is returned in milli-degrees Celsius so that no floating point needs to be used and no precision is lost </p><dl class="section return"><dt>Returns</dt><dd>Probe Temperature in milli/degrees</dd></dl>
 
 </div>
 </div>
