@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MAX31855
-   &#160;<span id="projectnumber">Version 1.0.3</span>
+   &#160;<span id="projectnumber">Version 1.0.5</span>
    </div>
    <div id="projectbrief">Arduino Library for the MAX31855 Cold-Junction Compensated Thermocouple-to-digital converter</div>
   </td>
@@ -93,28 +93,26 @@ $(document).ready(function(){initNavTree('_demo_8ino.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4fc01d736fe50cf5b977f755b675f11d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a> ()</td></tr>
-<tr class="memdesc:a4fc01d736fe50cf5b977f755b675f11d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arduino method called once at startup to initialize the system.  <a href="#a4fc01d736fe50cf5b977f755b675f11d">More...</a><br /></td></tr>
 <tr class="separator:a4fc01d736fe50cf5b977f755b675f11d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
-<tr class="memdesc:afe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arduino method for the main program loop.  <a href="#afe461d27b9c48d5921c00d521181f12f">More...</a><br /></td></tr>
 <tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:adc8430dea1bce949f10d9708742cca34"><td class="memItemLeft" align="right" valign="top"><a id="adc8430dea1bce949f10d9708742cca34"></a>
-const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#adc8430dea1bce949f10d9708742cca34">SERIAL_SPEED</a> = 115200</td></tr>
+const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#adc8430dea1bce949f10d9708742cca34">SERIAL_SPEED</a> {115200}</td></tr>
 <tr class="memdesc:adc8430dea1bce949f10d9708742cca34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the baud rate for Serial I/O. <br /></td></tr>
 <tr class="separator:adc8430dea1bce949f10d9708742cca34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca6fa9261de0dbd243cd174f8e0a3c54"><td class="memItemLeft" align="right" valign="top"><a id="aca6fa9261de0dbd243cd174f8e0a3c54"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#aca6fa9261de0dbd243cd174f8e0a3c54">SPI_CHIP_SELECT</a> = 2</td></tr>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#aca6fa9261de0dbd243cd174f8e0a3c54">SPI_CHIP_SELECT</a> {2}</td></tr>
 <tr class="memdesc:aca6fa9261de0dbd243cd174f8e0a3c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chip-Select PIN for SPI. <br /></td></tr>
 <tr class="separator:aca6fa9261de0dbd243cd174f8e0a3c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f81f1bd02f8739334de537b18d3b438"><td class="memItemLeft" align="right" valign="top"><a id="a0f81f1bd02f8739334de537b18d3b438"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#a0f81f1bd02f8739334de537b18d3b438">SPI_MISO</a> = MISO</td></tr>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#a0f81f1bd02f8739334de537b18d3b438">SPI_MISO</a> {MISO}</td></tr>
 <tr class="memdesc:a0f81f1bd02f8739334de537b18d3b438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Master-In, Slave-Out PIN for SPI. <br /></td></tr>
 <tr class="separator:a0f81f1bd02f8739334de537b18d3b438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2edeabe000b9422e79d268628dabd69d"><td class="memItemLeft" align="right" valign="top"><a id="a2edeabe000b9422e79d268628dabd69d"></a>
-const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#a2edeabe000b9422e79d268628dabd69d">SPI_SYSTEM_CLOCK</a> = SCK</td></tr>
+const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_demo_8ino.html#a2edeabe000b9422e79d268628dabd69d">SPI_SYSTEM_CLOCK</a> {SCK}</td></tr>
 <tr class="memdesc:a2edeabe000b9422e79d268628dabd69d"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Clock PIN for SPI. <br /></td></tr>
 <tr class="separator:a2edeabe000b9422e79d268628dabd69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3baeb1e95816f275361454f41f257087"><td class="memItemLeft" align="right" valign="top"><a id="a3baeb1e95816f275361454f41f257087"></a>
@@ -127,7 +125,7 @@ const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 Description</h1>
 <p>Example program for measuring temperatures using the MAX31855 Cold-Junction Compensated Thermocouple-to-digital converter.<br />
 <br />
-The MAX31855 datasheet is located at <a href="https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf">https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf</a> and describes the relatively simple interface. The MAX31855 uses SPI to communicate and only outputs data. It writes a sentence of 32 bits which include devices failure information and the ambient temperature as well as the thermocouple probe temperature in degrees Celsius.<br />
+ The MAX31855 datasheet is located at <a href="https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf">https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf</a> and describes the relatively simple interface. The MAX31855 uses SPI to communicate and only outputs data. It writes a sentence of 32 bits which include device failure information, the ambient temperature and the thermocouple probe temperature in degrees Celsius.<br />
 <br />
  The most recent version of the MAX31855 library is available at <a href="https://github.com/SV-Zanshin/MAX31855">https://github.com/SV-Zanshin/MAX31855</a> and the documentation of the library as well as example programs are described in the project's wiki pages located at <a href="https://github.com/SV-Zanshin/MAX31855/wiki">https://github.com/SV-Zanshin/MAX31855/wiki</a> <br />
 <br />
@@ -137,14 +135,14 @@ __**GNU General Public License v3.0**__</h1>
 <p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
 <h1><a class="anchor" id="Demoauthor"></a>
 Author</h1>
-<p>Written by Arnd@SV-Zanshin</p>
+<p>Written by <a href="https://www.github.com/SV-Zanshin">https://www.github.com/SV-Zanshin</a></p>
 <h1><a class="anchor" id="Demoversions"></a>
 Changelog</h1>
 <table class="doxtable">
 <tr>
 <th>Version </th><th>Date </th><th>Developer </th><th>Comments  </th></tr>
 <tr>
-<td>1.0.2 </td><td>2020-11-30 </td><td>mbouy974 </td><td>Corrected definition for Sofware SPI </td></tr>
+<td>1.0.2 </td><td>2020-11-30 </td><td>SV-Zanshin </td><td>Display detailed error codes, clang-formatted document </td></tr>
 <tr>
 <td>1.0.1 </td><td>2019-02-02 </td><td>SV-Zanshin </td><td>Issue #4 - Convert program comments and style to Doxygen </td></tr>
 <tr>
@@ -167,9 +165,8 @@ Changelog</h1>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Arduino method for the main program loop. </p>
-<p>This is the main program for the Arduino IDE, it is an infinite loop and keeps on repeating. </p><dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<p>Arduino method for the main program loop</p>
+<p>This is the main program for the Arduino IDE, it is an infinite loop and keeps on repeating </p><dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 
 </div>
 </div>
@@ -187,9 +184,8 @@ Changelog</h1>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Arduino method called once at startup to initialize the system. </p>
-<p>This is an Arduino IDE method which is called first upon boot or restart. It is only called one time and then control goes to the main "loop()" method, from which control never returns </p><dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<p>Arduino method called once at startup to initialize the system</p>
+<p>This is an Arduino IDE method which is called first upon boot or restart. It is only called one time and then control goes to the main "loop()" method, from which control never returns </p><dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 
 </div>
 </div>
