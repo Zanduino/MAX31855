@@ -31,11 +31,12 @@ Written by Arnd\@SV-Zanshin
 
 @section Demoversions Changelog
 
-Version | Date       | Developer                     | Comments
-------- | ---------- | ----------------------------- | ---------------------------------------------------
-1.0.1   | 2019-02-02 | https://github.com/SV-Zanshin | Issue #4 - Convert program comments and style to Doxygen
-1.0.0   | 2017-08-12 | https://github.com/SV-Zanshin | Finished, first release
-1.0.0a  | 2017-08-11 | https://github.com/SV-Zanshin | Initial coding
+Version | Date       | Developer  | Comments
+------- | ---------- | ---------- | ---------------------------------------------------
+1.0.2   | 2020-11-30 | mbouy974   | Corrected definition for Sofware SPI
+1.0.1   | 2019-02-02 | SV-Zanshin | Issue #4 - Convert program comments and style to Doxygen
+1.0.0   | 2017-08-12 | SV-Zanshin | Finished, first release
+1.0.0a  | 2017-08-11 | SV-Zanshin | Initial coding
 */
 #include <MAX31855.h> // Include MAX31855 Sensor library
 /*******************************************************************************************************************
@@ -68,8 +69,8 @@ void setup()
   /********************************************************************************************
   ** Uncomment out either the hardware or software SPI call, depending upon which is in use  **
   ********************************************************************************************/
-  while (!MAX31855.begin(SPI_CHIP_SELECT))                            // Hardware SPI for MAX31855
-//while (!MAX31855.begin(SPI_CHIP_SELECT,SPI_MISO,SPI_SYSTSEM_CLOCK)) // Software SPI for MAX31855
+  while (!MAX31855.begin(SPI_CHIP_SELECT))                           // Hardware SPI for MAX31855
+//while (!MAX31855.begin(SPI_CHIP_SELECT,SPI_MISO,SPI_SYSTEM_CLOCK)) // Software SPI for MAX31855
   {
     Serial.println(F("Unable to start MAX31855. Waiting 3 seconds."));
     delay(3000);
