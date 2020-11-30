@@ -66,12 +66,12 @@ class MAX31855_Class {
  public:
   MAX31855_Class();
   ~MAX31855_Class();
-  bool    begin(const uint8_t cs, const bool reverse = false);  // Start using hardware SPI
-  bool    begin(const uint8_t cs, const uint8_t miso, const uint8_t sck,
+  bool    begin(const uint8_t chipSelect, const bool reverse = false);  // Start using hardware SPI
+  bool    begin(const uint8_t chipSelect, const uint8_t miso, const uint8_t sck,
                 const bool reverse = false);  // Soft SPI
-  int32_t readProbe() ;                        // Return probe temperature
+  int32_t readProbe();                        // Return probe temperature
   int32_t readAmbient();                      // Return ambient/die temperature
-  uint8_t fault() const;                            // return any fault codes detected
+  uint8_t fault() const;                      // return any fault codes detected
  private:
   int32_t readRaw();          // Read 32 bits data from MAX31855
   uint8_t _cs, _miso, _sck;   ///< Store SPI pin values
