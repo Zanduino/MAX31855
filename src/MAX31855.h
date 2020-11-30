@@ -9,8 +9,8 @@ Class definition header for the Maxim MAX31855 Cold-Junction Compensated Thermoc
 converter. The MAX31855 datasheet is located at
 https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf and describes the relatively simple
 interface.  The MAX31855 uses SPI to communicate and only outputs data. It writes a sentence of 32
-bits which include devices failure information and the ambient temperature as well as the
-thermocouple probe temperature in degrees Celsius.\n\n
+bits which include device failure information, the ambient temperature and the thermocouple probe
+temperature in degrees Celsius.\n\n
 
 The most recent version of the MAX31855 library is available at
 https://github.com/SV-Zanshin/MAX31855 and the documentation of the library as well as example
@@ -33,7 +33,7 @@ received a copy of the GNU General Public License along with this program.  If n
 
 @section MAX31855author Author
 
-Written by Arnd\@SV-Zanshin
+Written by https://www.github.com/SV-Zanshin
 
 @section MAX31855versions Changelog
 
@@ -66,9 +66,9 @@ class MAX31855_Class {
  public:
   MAX31855_Class();
   ~MAX31855_Class();
-  bool    begin(const uint8_t chipSelect, const bool reverse = false);  // Start using hardware SPI
+  bool    begin(const uint8_t chipSelect, const bool reverse = false);  // Hardware SPI
   bool    begin(const uint8_t chipSelect, const uint8_t miso, const uint8_t sck,
-                const bool reverse = false);  // Soft SPI
+                const bool reverse = false);  // Software SPI
   int32_t readProbe();                        // Return probe temperature
   int32_t readAmbient();                      // Return ambient/die temperature
   uint8_t fault() const;                      // return any fault codes detected

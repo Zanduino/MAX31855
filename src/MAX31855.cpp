@@ -10,12 +10,12 @@ MAX31855_Class::~MAX31855_Class() {}  ///< Empty & unused class destructor
 
 bool MAX31855_Class::begin(const uint8_t chipSelect, const bool reverse) {
   /*!
-   @brief   Initialize library with Hardware SPI (overloaded function
-   @details When called with one parameter which represents the chip-select pin then hardware SPI is
-            used, otherwise when called with 3 parameters they define the software SPI pins SPI to
-            be used. Since the MAX31855 is a 1-way device, there is no practical way to check for a
-            device, so a dummy read is done to see if the device is responding and that defines
-            whether the function returns a true or false status
+   @brief     Initialize library with Hardware SPI (overloaded function
+   @details   When called with one parameter which represents the chip-select pin then hardware SPI
+              is used, otherwise when called with 3 parameters they define the software SPI pins SPI
+              to be used. Since the MAX31855 is a 1-way device, there is no practical way to check
+              for a device, so a dummy read is done to see if the device is responding and that
+              defines whether the function returns a true or false status
    @param[in] chipSelect Chip-Select pin number
    @param[in] reverse Option boolean switch to indicate that the wires are (intentionally) reversed
    @return    true if the device could be read, otherwise false
@@ -26,11 +26,7 @@ bool MAX31855_Class::begin(const uint8_t chipSelect, const bool reverse) {
   digitalWrite(_cs, HIGH);  // High means ignore master
   SPI.begin();              // Initialize SPI communication
   readRaw();                // Try to read the raw data
-  if (_errorCode) {
-    return false;
-  } else {
-    return true;
-  }  // of if-then-else error code detected
+  return (bool)_errorCode;  // Return error code as a boolean value
 }  // of method begin()
 bool MAX31855_Class::begin(const uint8_t chipSelect, const uint8_t miso, const uint8_t sck,
                            const bool reverse) {
@@ -56,11 +52,7 @@ bool MAX31855_Class::begin(const uint8_t chipSelect, const uint8_t miso, const u
   pinMode(_sck, OUTPUT);    // Make system clock pin output
   pinMode(_miso, INPUT);    // Make master-in slave-out input
   readRaw();                // Read the raw data
-  if (_errorCode) {
-    return false;
-  } else {
-    return true;
-  }  // if-then-else errorcode on read
+  return (bool)_errorCode;  // Return error code as a boolean value
 }  // of method begin()
 uint8_t MAX31855_Class::fault() const {
   /*!
@@ -71,7 +63,6 @@ uint8_t MAX31855_Class::fault() const {
   */
   return _errorCode;
 }  // of method fault()
-
 int32_t MAX31855_Class::readRaw() {
   /*!
    @brief   returns the 32 bits of raw data from the MAX31855 device
@@ -119,7 +110,6 @@ int32_t MAX31855_Class::readRaw() {
   }             // of for-next number of retries
   return dataBuffer;
 }  // of method readRaw()
-
 int32_t MAX31855_Class::readProbe() {
   /*!
    @brief   returns the probe temperature
@@ -130,7 +120,7 @@ int32_t MAX31855_Class::readProbe() {
   int32_t rawBuffer  = readRaw();  // Read the raw data into variable
   int32_t dataBuffer = rawBuffer;  // Copy to working variable
   if (dataBuffer & B111)
-    dataBuffer = INT32_MAX;  // if error bits set then return error
+    dataBuffer = INT32_MAX;  // if any error bits are set then return error value
   else {
     dataBuffer = dataBuffer >> 18;                     // remove unused ambient values
     if (dataBuffer & 0x2000) dataBuffer |= 0xFFFE000;  // 2s complement bits if negative
@@ -145,7 +135,6 @@ int32_t MAX31855_Class::readProbe() {
   }  // of if-then the thermocouple pins reversed
   return dataBuffer;
 }  // of method readProbe()
-
 int32_t MAX31855_Class::readAmbient() {
   /*!
    @brief   returns the ambient temperature

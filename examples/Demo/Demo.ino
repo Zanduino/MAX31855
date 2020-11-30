@@ -6,7 +6,7 @@ Example program for measuring temperatures using the MAX31855 Cold-Junction Comp
 Thermocouple-to-digital converter.\n\n The MAX31855 datasheet is located at
 https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf and describes the relatively simple
 interface.  The MAX31855 uses SPI to communicate and only outputs data. It writes a sentence of 32
-bits which include devices failure information and the ambient temperature as well as the
+bits which include device failure information,  the ambient temperature and the
 thermocouple probe temperature in degrees Celsius.\n\n
 
 The most recent version of the MAX31855 library is available at
@@ -29,17 +29,18 @@ received a copy of the GNU General Public License along with this program.  If n
 
 @section Demoauthor Author
 
-Written by Arnd\@SV-Zanshin
+Written by https://www.github.com/SV-Zanshin
 
 @section Demoversions Changelog
 
 Version | Date       | Developer  | Comments
 ------- | ---------- | ---------- | ---------------------------------------------------
-1.0.2   | 2020-11-30 | SV-Zanshin | Display detailed error codes
+1.0.2   | 2020-11-30 | SV-Zanshin | Display detailed error codes, clang-formatted document
 1.0.1   | 2019-02-02 | SV-Zanshin | Issue #4 - Convert program comments and style to Doxygen
 1.0.0   | 2017-08-12 | SV-Zanshin | Finished, first release
 1.0.0a  | 2017-08-11 | SV-Zanshin | Initial coding
 */
+
 #include <MAX31855.h>  // Include MAX31855 Sensor library
 /***************************************************************************************************
 ** Declare all program constants                                                                  **
@@ -71,9 +72,8 @@ void setup() {
   /*************************************************************************************************
   ** Uncomment out either the hardware or software SPI call, depending upon which is in use       **
   *************************************************************************************************/
-  while (!MAX31855.begin(SPI_CHIP_SELECT))  // Hardware SPI for MAX31855
-  // while (!MAX31855.begin(SPI_CHIP_SELECT,SPI_MISO,SPI_SYSTSEM_CLOCK)) // Software SPI for
-  // MAX31855
+  while (!MAX31855.begin(SPI_CHIP_SELECT))  // Hardware SPI
+  // while (!MAX31855.begin(SPI_CHIP_SELECT,SPI_MISO,SPI_SYSTSEM_CLOCK)) // Software SPI
   {
     Serial.println(F("Unable to start MAX31855. Waiting 3 seconds."));
     delay(3000);
@@ -93,26 +93,24 @@ void loop() {
   uint8_t faultCode          = MAX31855.fault();        // retrieve any error codes
   if (faultCode)                                        // Display error code if present
   {
-    if (faultCode & 1) {
+    if (faultCode & B001) {
       Serial.println(F("Fault: Wire not connected"));
     }
-    if (faultCode & 2) {
+    if (faultCode & B010) {
       Serial.println(F("Fault: Short-circuited to Ground (negative)"));
     }
-    if (faultCode & 4) {
+    if (faultCode & B100) {
       Serial.println(F("Fault: Short-circuited to VCC (positive)"));
     }
   } else {
+    // clang-format off
     Serial.print("Ambient Temperature is ");
     Serial.print((float)ambientTemperature / 1000, 3);
-    Serial.println(
-        "\xC2\xB0"
-        "C");
+    Serial.println("\xC2\xB0""C");
     Serial.print("Probe Temperature is   ");
     Serial.print((float)probeTemperature / 1000, 3);
-    Serial.println(
-        "\xC2\xB0"
-        "C\n");
+    Serial.println("\xC2\xB0""C\n");
+    // clang-format on
   }  // of if-then-else an error occurred
   delay(5000);
 }  // of method loop()
