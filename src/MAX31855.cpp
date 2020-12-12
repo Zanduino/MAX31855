@@ -1,4 +1,4 @@
-/*! @file MAX31855.cpp
+﻿/*! @file MAX31855.cpp
  @section MAX38155cpp_intro_section Description
 
 Arduino Library for Microchip SRAM access\n\n
@@ -124,13 +124,13 @@ int32_t MAX31855_Class::readProbe() {
   else {
     dataBuffer = dataBuffer >> 18;                     // remove unused ambient values
     if (dataBuffer & 0x2000) dataBuffer |= 0xFFFE000;  // 2s complement bits if negative
-    dataBuffer *= (int32_t)250;                        // Sensitivity is 0.25C
+    dataBuffer *= (int32_t)250;                        // Sensitivity is 0.25°C
   }                                                    // of if we have an error
   if (_reversed)  // If the thermocouple pins are reversed we have to switch readings around
   {
     int32_t ambientBuffer = (rawBuffer & 0xFFFF) >> 4;             // remove probe & fault values
     if (ambientBuffer & 0x2000) ambientBuffer |= 0xFFFF000;        // 2s complement bits if negative
-    ambientBuffer = ambientBuffer * (int32_t)625 / (int32_t)10;    // Sensitivity is 0.0625C
+    ambientBuffer = ambientBuffer * (int32_t)625 / (int32_t)10;    // Sensitivity is 0.0625°C
     dataBuffer    = (ambientBuffer - dataBuffer) + ambientBuffer;  // Invert the delta temperature
   }  // of if-then the thermocouple pins reversed
   return dataBuffer;
@@ -148,7 +148,7 @@ int32_t MAX31855_Class::readAmbient() {
   else {
     dataBuffer = (dataBuffer & 0xFFFF) >> 4;               // remove probe & fault values
     if (dataBuffer & 0x2000) dataBuffer |= 0xFFFF000;      // 2s complement bits if negative
-    dataBuffer = dataBuffer * (int32_t)625 / (int32_t)10;  // Sensitivity is 0.0625C
+    dataBuffer = dataBuffer * (int32_t)625 / (int32_t)10;  // Sensitivity is 0.0625°C
   }                                                        // of if we have an error
   return dataBuffer;
 }  // of method readAmbient()
