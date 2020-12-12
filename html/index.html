@@ -29,9 +29,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MAX31855
-   &#160;<span id="projectnumber">Version 1.0.5</span>
+   &#160;<span id="projectnumber">v1.0.6</span>
    </div>
-   <div id="projectbrief">Arduino Library for the MAX31855 Cold-Junction Compensated Thermocouple-to-digital converter</div>
+   <div id="projectbrief">Arduino Library to read temperatures from a thermocouple using the MAX31855 chip</div>
   </td>
  </tr>
  </tbody>
@@ -89,15 +89,21 @@ $(document).ready(function(){initNavTree('index.html','');});
 Description</h1>
 <p>Class definition header for the Maxim MAX31855 Cold-Junction Compensated Thermocouple-to-digital converter. The MAX31855 datasheet is located at <a href="https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf">https://datasheets.maximintegrated.com/en/ds/MAX31855.pdf</a> and describes the relatively simple interface. The MAX31855 uses SPI to communicate and only outputs data. It writes a sentence of 32 bits which include device failure information, the ambient temperature and the thermocouple probe temperature in degrees Celsius.<br />
 <br />
- The most recent version of the MAX31855 library is available at <a href="https://github.com/SV-Zanshin/MAX31855">https://github.com/SV-Zanshin/MAX31855</a> and the documentation of the library as well as example programs are described in the project's wiki pages located at <a href="https://github.com/SV-Zanshin/MAX31855/wiki">https://github.com/SV-Zanshin/MAX31855/wiki</a> <br />
+ The most recent version of the MAX31855 library is available at <a href="https://github.com/Zanduino/MAX31855">https://github.com/Zanduino/MAX31855</a> and the documentation of the library as well as example programs are described in the project's wiki pages located at <a href="https://github.com/Zanduino/MAX31855/wiki">https://github.com/Zanduino/MAX31855/wiki</a> <br />
 <br />
  The MAX31855 is a specialized chip that uses SPI to send a sentence of 32 bits on demand. This contains the ambient temperature and probe temperature in degrees Celsius as well as some status bits indicating fault conditions. It does not have any data inputs apart from checking the state of the CS pin.</p>
-<h1><a class="anchor" id="MAX31855_License"></a>
-__**GNU General Public License v3.0**__</h1>
+<h1><a class="anchor" id="MAX31855doxygen"></a>
+doxygen configuration</h1>
+<p>This library is built with the standard "Doxyfile", which is located at <a href="https://github.com/Zanduino/Common/blob/main/Doxygen">https://github.com/Zanduino/Common/blob/main/Doxygen</a>. As described on that page, there are only 5 environment variables used, and these are set in the project's actions file, located at <a href="https://github.com/Zanduino/MAX31855/blob/master/.github/workflows/ci-doxygen.yml">https://github.com/Zanduino/MAX31855/blob/master/.github/workflows/ci-doxygen.yml</a> Edit this file and set the 5 variables - PRETTYNAME, PROJECT_NAME, PROJECT_NUMBER, PROJECT_BRIEF and PROJECT_LOGO so that these values are used in the doxygen documentation. The local copy of the doxyfile should be in the project's root directory in order to do local doxygen testing, but the file is ignored on upload to GitHub.</p>
+<h1><a class="anchor" id="MAX31855clang"></a>
+clang-format</h1>
+<p>Part of the GitHub actions for CI is running every source file through "clang-format" to ensure that coding formatting is done the same for all files. The configuration file ".clang-format" is located at <a href="https://github.com/Zanduino/Common/tree/main/clang-format">https://github.com/Zanduino/Common/tree/main/clang-format</a> and this is used for CI tests when pushing to GitHub. The local file, if present in the root directory, is ignored when committing and uploading.</p>
+<h1><a class="anchor" id="MAX31855license"></a>
+GNU General Public License v3.0</h1>
 <p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
-<h1><a class="anchor" id="MAX31855author"></a>
+<h1><a class="anchor" id="author"></a>
 Author</h1>
-<p>Written by <a href="https://www.github.com/SV-Zanshin">https://www.github.com/SV-Zanshin</a></p>
+<p>Written by Arnd <a href="#" onclick="location.href='mai'+'lto:'+'Zan'+'sh'+'in_'+'Gi'+'thu'+'b@'+'sv-'+'za'+'nsh'+'in'+'.co'+'m'; return false;">Zansh<span style="display: none;">.nosp@m.</span>in_G<span style="display: none;">.nosp@m.</span>ithub<span style="display: none;">.nosp@m.</span>@sv-<span style="display: none;">.nosp@m.</span>zansh<span style="display: none;">.nosp@m.</span>in.c<span style="display: none;">.nosp@m.</span>om</a> / <a href="https://www.github.com/SV-Zanshin">https://www.github.com/SV-Zanshin</a></p>
 <h1><a class="anchor" id="MAX31855versions"></a>
 Changelog</h1>
 <table class="doxtable">

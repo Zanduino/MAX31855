@@ -3,8 +3,10 @@ var NAVTREE =
   [ "MAX31855", "index.html", [
     [ "Arduino Library Header to access the MAX31855 thermocouple", "index.html", [
       [ "Description", "index.html#MAX31855_intro_section", null ],
-      [ "__**GNU General Public License v3.0**__", "index.html#MAX31855_License", null ],
-      [ "Author", "index.html#MAX31855author", null ],
+      [ "doxygen configuration", "index.html#MAX31855doxygen", null ],
+      [ "clang-format", "index.html#MAX31855clang", null ],
+      [ "GNU General Public License v3.0", "index.html#MAX31855license", null ],
+      [ "Author", "index.html#author", null ],
       [ "Changelog", "index.html#MAX31855versions", null ]
     ] ],
     [ "Classes", "annotated.html", [

@@ -36,9 +36,11 @@ var NAVTREEINDEX0 =
 "globals_vars.html":[2,1,2],
 "index.html":[0],
 "index.html":[],
-"index.html#MAX31855_License":[0,1],
 "index.html#MAX31855_intro_section":[0,0],
-"index.html#MAX31855author":[0,2],
-"index.html#MAX31855versions":[0,3],
+"index.html#MAX31855clang":[0,2],
+"index.html#MAX31855doxygen":[0,1],
+"index.html#MAX31855license":[0,3],
+"index.html#MAX31855versions":[0,5],
+"index.html#author":[0,4],
 "pages.html":[]
 };
