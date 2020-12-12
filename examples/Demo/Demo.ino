@@ -72,8 +72,8 @@ void setup() {
   /*************************************************************************************************
   ** Uncomment out either the hardware or software SPI call, depending upon which is in use       **
   *************************************************************************************************/
-  while (!MAX31855.begin(SPI_CHIP_SELECT))                           // Hardware SPI for MAX31855
-//while (!MAX31855.begin(SPI_CHIP_SELECT,SPI_MISO,SPI_SYSTEM_CLOCK)) // Software SPI for MAX31855
+  while (!MAX31855.begin(SPI_CHIP_SELECT))  // Hardware SPI for MAX31855
+  // while (!MAX31855.begin(SPI_CHIP_SELECT,SPI_MISO,SPI_SYSTEM_CLOCK)) // Software SPI for MAX31855
   {
     Serial.println(F("Unable to start MAX31855. Waiting 3 seconds."));
     delay(3000);
