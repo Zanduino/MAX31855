@@ -10,9 +10,9 @@ bits which include device failure information,  the ambient temperature and the
 thermocouple probe temperature in degrees Celsius.\n\n
 
 The most recent version of the MAX31855 library is available at
-https://github.com/SV-Zanshin/MAX31855 and the documentation of the library as well as example
+https://github.com/Zanduino/MAX31855 and the documentation of the library as well as example
 programs are described in the project's wiki pages located at
-https://github.com/SV-Zanshin/MAX31855/wiki \n\n
+https://github.com/Zanduino/MAX31855/wiki \n\n
 
 This example is simple in that it displays the ambient and probe temperatures every 5 seconds and
 flags any errors that the device raises.
@@ -29,7 +29,7 @@ received a copy of the GNU General Public License along with this program.  If n
 
 @section Demoauthor Author
 
-Written by https://www.github.com/SV-Zanshin
+ Written by Arnd <Zanshin_Github@sv-zanshin.com> / https://www.github.com/SV-Zanshin
 
 @section Demoversions Changelog
 

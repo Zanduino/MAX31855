@@ -13,37 +13,57 @@ bits which include device failure information, the ambient temperature and the t
 temperature in degrees Celsius.\n\n
 
 The most recent version of the MAX31855 library is available at
-https://github.com/SV-Zanshin/MAX31855 and the documentation of the library as well as example
+https://github.com/Zanduino/MAX31855 and the documentation of the library as well as example
 programs are described in the project's wiki pages located at
-https://github.com/SV-Zanshin/MAX31855/wiki \n\n
+https://github.com/Zanduino/MAX31855/wiki \n\n
 
 The MAX31855 is a specialized chip that uses SPI to send a sentence of 32 bits on demand. This
 contains the ambient temperature and probe temperature in degrees Celsius as well as some status
 bits indicating fault conditions. It does not have any data inputs apart from checking the state of
 the CS pin.
 
-@section MAX31855_License __**GNU General Public License v3.0**__
+@section MAX31855doxygen doxygen configuration
+
+This library is built with the standard "Doxyfile", which is located at
+https://github.com/Zanduino/Common/blob/main/Doxygen. As described on that page, there are only 5
+environment variables used, and these are set in the project's actions file, located at
+https://github.com/Zanduino/MAX31855/blob/master/.github/workflows/ci-doxygen.yml
+Edit this file and set the 5 variables -  PRETTYNAME, PROJECT_NAME, PROJECT_NUMBER, PROJECT_BRIEF
+and PROJECT_LOGO so that these values are used in the doxygen documentation.
+The local copy of the doxyfile should be in the project's root directory in order to do local
+doxygen testing, but the file is ignored on upload to GitHub.
+
+@section MAX31855clang clang-format
+Part of the GitHub actions for CI is running every source file through "clang-format" to ensure
+that coding formatting is done the same for all files. The configuration file ".clang-format" is
+located at https://github.com/Zanduino/Common/tree/main/clang-format and this is used for CI tests
+when pushing to GitHub. The local file, if present in the root directory, is ignored when
+committing and uploading.
+
+@section MAX31855license GNU General Public License v3.0
+
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU
 General Public License as published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version. This program is distributed in the hope that it will
-be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have
-received a copy of the GNU General Public License along with this program.  If not, see
+License, or (at your option) any later version. This program is distributed in the hope that it
+will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should
+have received a copy of the GNU General Public License along with this program.  If not, see
 <http://www.gnu.org/licenses/>.
 
-@section MAX31855author Author
+@section author Author
 
-Written by https://www.github.com/SV-Zanshin
+Written by Arnd <Zanshin_Github@sv-zanshin.com> / https://www.github.com/SV-Zanshin
+
 
 @section MAX31855versions Changelog
 
 Version| Date       | Developer  | Comments
 ------ | ---------- | ---------- | --------
 1.0.5  | 2020-11-30 | SV-Zanshin | Reformatted with clang-format, compacted library code
-1.0.4  | 2019-02-02 | SV-Zanshin | Issue #5 - Convert comments and style to Doxygen 
-1.0.2  | 2017-09-17 | SV-Zanshin | Issue #2 - Invalid values 
-1.0.1  | 2017-09-10 | SV-Zanshin | Added error return codes for begin(). Added reverse switch in begin() and corrected speed issue and sporadic errors 
-1.0.0  | 2017-08-12 | SV-Zanshin | Ready for release 
+1.0.4  | 2019-02-02 | SV-Zanshin | Issue #5 - Convert comments and style to Doxygen
+1.0.2  | 2017-09-17 | SV-Zanshin | Issue #2 - Invalid values
+1.0.1  | 2017-09-10 | SV-Zanshin | Added error return codes for begin(). Added reverse switch in begin() and corrected speed issue and sporadic errors
+1.0.0  | 2017-08-12 | SV-Zanshin | Ready for release
 1.0.0a | 2017-08-11 | SV-Zanshin | Started coding
 */
 // clang-format on
