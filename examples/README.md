@@ -6,4 +6,4 @@ Currently there is only one example program for the *Arduino* MAX31855 library i
 | ------------------- | ------------------------------------------------------------------------------------ | -------- |
 | Demo                | [Demo.ino](https://github.com/Zanduino/MAX31855/wiki/Demo.ino)                     | Simple program to read temperature |
 
-[![Zanshin Logo](https://zanduino.github.io/Images/zanshinkanjitiny.gif) <img src="https://zanduino.github.io/Images/zanshintext.gif" width="75"/>](https://www.sv-zanshin.com)
+[![Zanshin Logo](https://zanduino.github.io/Images/zanshinkanjitiny.gif) <img src="https://zanduino.github.io/Images/zanshintext.gif" width="75"/>](https://zanduino.github.io)

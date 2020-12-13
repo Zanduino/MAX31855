@@ -52,7 +52,7 @@ have received a copy of the GNU General Public License along with this program. 
 
 @section author Author
 
-Written by Arnd <Zanshin_Github@sv-zanshin.com> / https://www.github.com/SV-Zanshin
+Written by Arnd <Arnd@Zanduino.Com> at https://www.github.com/SV-Zanshin
 
 
 @section MAX31855versions Changelog

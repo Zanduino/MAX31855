@@ -11,4 +11,4 @@ The ambient temperature is affected by die and board temperature and will genera
 
 A detailed library description and further details are available at the [GitHub MAX31855 Wiki](https://github.com/Zanduino/MAX31855/wiki)
 
-[![Zanshin Logo](https://zanduino.github.io/Images/zanshinkanjitiny.gif) <img src="https://zanduino.github.io/Images/zanshintext.gif" width="75"/>](https://www.sv-zanshin.com)
+[![Zanshin Logo](https://zanduino.github.io/Images/zanshinkanjitiny.gif) <img src="https://zanduino.github.io/Images/zanshintext.gif" width="75"/>](https://zanduino.github.io)
