@@ -55,7 +55,8 @@ const uint8_t  SPI_SYSTEM_CLOCK{SCK};  ///< System Clock PIN for SPI
 ** Declare global variables and instantiate classes                                               **
 ***************************************************************************************************/
 MAX31855_Class MAX31855;  ///< Create an instance of MAX31855
-void           setup() {
+
+void setup() {
   /*!
     @brief    Arduino method called once at startup to initialize the system
     @details  This is an Arduino IDE method which is called first upon boot or restart. It is only
