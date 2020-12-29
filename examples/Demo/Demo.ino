@@ -29,19 +29,20 @@ received a copy of the GNU General Public License along with this program.  If n
 
 @section Demoauthor Author
 
- Written by Arnd <Arnd@Zanduino.Com> at https://www.github.com/SV-Zanshin
+Written by Arnd <Arnd@Zanduino.Com> at https://www.github.com/SV-Zanshin
 
 @section Demoversions Changelog
 
-Version | Date       | Developer  | Comments
-------- | ---------- | ---------- | ---------------------------------------------------
-1.0.2   | 2020-11-30 | SV-Zanshin | Display detailed error codes, clang-formatted document
-1.0.1   | 2019-02-02 | SV-Zanshin | Issue #4 - Convert program comments and style to Doxygen
-1.0.0   | 2017-08-12 | SV-Zanshin | Finished, first release
-1.0.0a  | 2017-08-11 | SV-Zanshin | Initial coding
+| Version | Date       | Developer  | Comments                                                     |
+| ------- | ---------- | ---------- | ------------------------------------------------------------ |
+| 1.0.3   | 2020-12-29 | SV-Zanshin | Cleaned up comments and slight code refactoring              |
+| 1.0.2   | 2020-11-30 | SV-Zanshin | Display detailed error codes, clang-formatted document       |
+| 1.0.1   | 2019-02-02 | SV-Zanshin | Issue #4 - Convert program comments and style to Doxygen     |
+| 1.0.0   | 2017-08-12 | SV-Zanshin | Finished, first release                                      |
+| 1.0.0a  | 2017-08-11 | SV-Zanshin | Initial coding                                               |
 */
 
-#include <MAX31855.h>  // Include MAX31855 Sensor library
+#include "MAX31855.h"  // Include MAX31855 Sensor library
 /***************************************************************************************************
 ** Declare all program constants                                                                  **
 ***************************************************************************************************/
@@ -54,7 +55,6 @@ const uint8_t  SPI_SYSTEM_CLOCK{SCK};  ///< System Clock PIN for SPI
 ** Declare global variables and instantiate classes                                               **
 ***************************************************************************************************/
 MAX31855_Class MAX31855;  ///< Create an instance of MAX31855
-
 void setup() {
   /*!
     @brief    Arduino method called once at startup to initialize the system
@@ -64,7 +64,7 @@ void setup() {
     @return   void
   */
   Serial.begin(SERIAL_SPEED);
-#ifdef __AVR_ATmega32U4__  // If 32U4 then wait 3 seconds for the interface to initialize
+#ifdef __AVR_ATmega32U4__  // If a 32U4 then wait 3 seconds for the interface to initialize
   delay(3000);
 #endif
   Serial.println(F("Starting software SPI demo program for MAX31855"));

@@ -54,17 +54,16 @@ have received a copy of the GNU General Public License along with this program. 
 
 Written by Arnd <Arnd@Zanduino.Com> at https://www.github.com/SV-Zanshin
 
-
 @section MAX31855versions Changelog
 
-Version| Date       | Developer  | Comments
------- | ---------- | ---------- | --------
-1.0.5  | 2020-11-30 | SV-Zanshin | Reformatted with clang-format, compacted library code
-1.0.4  | 2019-02-02 | SV-Zanshin | Issue #5 - Convert comments and style to Doxygen
-1.0.2  | 2017-09-17 | SV-Zanshin | Issue #2 - Invalid values
-1.0.1  | 2017-09-10 | SV-Zanshin | Added error return codes for begin(). Added reverse switch in begin() and corrected speed issue and sporadic errors
-1.0.0  | 2017-08-12 | SV-Zanshin | Ready for release
-1.0.0a | 2017-08-11 | SV-Zanshin | Started coding
+| Version| Date       | Developer  | Comments                                                      |
+| ------ | ---------- | ---------- | ------------------------------------------------------------- |
+| 1.0.5  | 2020-11-30 | SV-Zanshin | Reformatted with clang-format, compacted library code         |
+| 1.0.4  | 2019-02-02 | SV-Zanshin | Issue #5 - Convert comments and style to Doxygen              |
+| 1.0.2  | 2017-09-17 | SV-Zanshin | Issue #2 - Invalid values                                     |
+| 1.0.1  | 2017-09-10 | SV-Zanshin | Added error return codes for begin(). Added reverse switch in begin() and corrected speed issue and sporadic errors |
+| 1.0.0  | 2017-08-12 | SV-Zanshin | Ready for release                                             |
+| 1.0.0a | 2017-08-11 | SV-Zanshin | Started coding                                                |
 */
 // clang-format on
 #include "Arduino.h"
