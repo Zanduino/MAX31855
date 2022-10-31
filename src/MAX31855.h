@@ -58,6 +58,7 @@ Written by Arnd <Arnd@Zanduino.Com> at https://www.github.com/SV-Zanshin
 
 | Version| Date       | Developer  | Comments                                                      |
 | ------ | ---------- | ---------- | ------------------------------------------------------------- |
+| 1.0.6  | 2022-10-31 | A. Demuri  | Issue #11 - Added initialization to SPI variables             |
 | 1.0.5  | 2020-11-30 | SV-Zanshin | Reformatted with clang-format, compacted library code         |
 | 1.0.4  | 2019-02-02 | SV-Zanshin | Issue #5 - Convert comments and style to Doxygen              |
 | 1.0.2  | 2017-09-17 | SV-Zanshin | Issue #2 - Invalid values                                     |
@@ -92,9 +93,9 @@ class MAX31855_Class {
   int32_t readAmbient();                      // Return ambient/die temperature
   uint8_t fault() const;                      // return any fault codes detected
  private:
-  int32_t readRaw();          // Read 32 bits data from MAX31855
+  int32_t readRaw();                      // Read 32 bits data from MAX31855
   uint8_t _cs = 0, _miso = 0, _sck = 0;   ///< Store SPI pin values
-  uint8_t _errorCode = 0;         ///< MAX31855 fault code bits
-  bool    _reversed = false;  ///< Set to true if contacts reversed
-};                            // of MAX31855 class definition
+  uint8_t _errorCode = 0;                 ///< MAX31855 fault code bits
+  bool    _reversed = false;              ///< Set to true if contacts reversed
+};                                        // of MAX31855 class definition
 #endif
