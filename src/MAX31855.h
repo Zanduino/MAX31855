@@ -70,8 +70,8 @@ Written by Arnd <Arnd@Zanduino.Com> at https://www.github.com/SV-Zanshin
 #include "Arduino.h"
 #include <SPI.h>  // Standard SPI library
 #ifndef MAX31855_h
-/*! Library guard variable to prevent multiple inclusions */
-#define MAX31855_h
+  /*! Library guard variable to prevent multiple inclusions */
+  #define MAX31855_h
 /***************************************************************************************************
 ** Declare constants used in the class                                                            **
 ***************************************************************************************************/
