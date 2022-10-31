@@ -94,15 +94,9 @@ void loop() {
   uint8_t faultCode          = MAX31855.fault();        // retrieve any error codes
   if (faultCode)                                        // Display error code if present
   {
-    if (faultCode & B001) {
-      Serial.println(F("Fault: Wire not connected"));
-    }
-    if (faultCode & B010) {
-      Serial.println(F("Fault: Short-circuited to Ground (negative)"));
-    }
-    if (faultCode & B100) {
-      Serial.println(F("Fault: Short-circuited to VCC (positive)"));
-    }
+    if (faultCode & B001) { Serial.println(F("Fault: Wire not connected")); }
+    if (faultCode & B010) { Serial.println(F("Fault: Short-circuited to Ground (negative)")); }
+    if (faultCode & B100) { Serial.println(F("Fault: Short-circuited to VCC (positive)")); }
   } else {
     // clang-format off
     Serial.print("Ambient Temperature is ");
