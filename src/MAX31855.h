@@ -96,6 +96,6 @@ class MAX31855_Class {
   int32_t readRaw();                     // Read 32 bits data from MAX31855
   uint8_t _cs = 0, _miso = 0, _sck = 0;  ///< Store SPI pin values
   uint8_t _errorCode = 0;                ///< MAX31855 fault code bits
-  bool    _reversed = false;             ///< Set to true if contacts reversed
+  bool    _reversed  = false;            ///< Set to true if contacts reversed
 };                                       // of MAX31855 class definition
 #endif
